@@ -23,13 +23,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ms-auto">
+                <form action="/csvSave" method="post" enctype="multipart/form-data">
                 <li class="nav-item">
                   <a class="nav-link">
                   <div class='file' >
                     <label for='input-file'  style="background: rgb(193, 232, 153);">
                       <i class="fa fa-upload" aria-hidden="true"></i>Select a file
                     </label>
-                    <input id='input-file' type='file' accept=".csv"/>
+                    <input name="fileupload" id='input-file' type='file' accept=".csv"/>
                   </div>
                 </a>
                   <!-- <a class="nav-link" href="#!">
@@ -42,12 +43,14 @@
                   </a> -->
                   <a class="nav-link">
                     <div class="buttonele">
-                  <button class="btn btn-success" style="padding: 10px;">
+                      <input type="submit" value="Upload File" name="Submit" class="btn btn-success" style="padding: 10px;">
+                  <!-- <button class="btn btn-success" style="padding: 10px;">
                     Submit
-                  </button>
+                  </button> -->
                 </div>
                 </a>
                 </li>
+              </form>
               </ul>
             </div>
           </div>
@@ -114,9 +117,24 @@
           </div>
           </div>
           </div> -->
+          {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+          <div class="row mt-3">
+            <div class="col">
+              {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show"role="alert">
+                    <span>{{ message }}</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    
+
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
+          {% endwith %}
         </div>
 
-      </div>
     <!-- JavaScript Bundle with Popper -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>

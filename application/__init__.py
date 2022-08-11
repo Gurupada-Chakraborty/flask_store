@@ -14,4 +14,4 @@ print("Mongo connection successfull ..")
 # col = db['stores']
 
 
-from application import routes
+from application import routes, stores

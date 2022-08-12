@@ -169,7 +169,8 @@
             $("#image").hide();
             $('#example').DataTable({
                 destroy : true,
-                pageLength : 10,
+                pageLength : 5,
+                lengthMenu: [[5, 10, 20, -1], [5, 10, 20, 'ALL']],
                 data : response['data'],
                 "columns": [
                     {"data": "store_id"},
@@ -183,7 +184,6 @@
             });
           };
           $('#submit_btn').click(function(){
-            console.log('hit it ..');
             if ($.fn.DataTable.isDataTable("#example")) {
               $('#example').DataTable().clear().destroy();
             }

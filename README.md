@@ -13,4 +13,7 @@ Case Study Stores
 - runs at `127:0.0.1:5000`
 - `flask_store/python run.py`
 
+# Deploy :
+- deployment server : `https://flask-store-1011.herokuapp.com/`
+
 
